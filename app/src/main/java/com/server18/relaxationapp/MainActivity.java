@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -34,7 +35,7 @@ import java.util.List;
 public class MainActivity extends Activity {
     ListView listView;
     Myadapter arrayAdapter;
-
+    private DatabaseHandler databaseHandler;
 
     ArrayList<ModalData> arrayList = new ArrayList<>();
     ArrayList<ModalData> arrayListAddData = new ArrayList<>();
@@ -43,6 +44,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        databaseHandler = new DatabaseHandler(this);
+
 
         TextView textView = (TextView)findViewById(R.id.favorate_txt);
 
@@ -92,6 +95,9 @@ public class MainActivity extends Activity {
                                 // Remove selected items following the ids
 
                                 arrayListAddData.add(selecteditem);
+
+                                databaseHandler.addContact(new ModalData(selecteditem.getVideo_id()));
+
                                // arrayAdapter.remove(selecteditem);
                             }
                         }
@@ -145,12 +151,12 @@ public class MainActivity extends Activity {
 
 
         // getVideoThumbnail(this, arrayList);
-     /*   listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 ModalData modelData = (ModalData) parent.getItemAtPosition(position);
-               *//* try {
+               /* try {
                     String s = modelData.getVideo_id();
 
                     MediaPlayer player = new MediaPlayer();
@@ -161,7 +167,7 @@ public class MainActivity extends Activity {
 
                 } catch (Exception e) {
                     // TODO: handle exception
-                }*//*
+                }*/
 
                 String s = modelData.getVideo_id();
                 Intent intent = new Intent(getApplicationContext(), AudioPlayerActivity.class);
@@ -169,7 +175,7 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
 
-        });*/
+        });
 
 
 

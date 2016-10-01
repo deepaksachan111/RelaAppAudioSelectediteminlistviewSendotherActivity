@@ -7,8 +7,23 @@ import java.io.Serializable;
  */
  class ModalData  implements Serializable{
 
-    String video_id;
-    String video_image;
+    public void setVideo_id(String video_id) {
+        this.video_id = video_id;
+    }
+
+    private   String video_id;
+   private String video_image;
+    private String auto_id ;
+
+    public String getAuto_id() {
+        return auto_id;
+    }
+
+    public void setAuto_id(String auto_id) {
+        this.auto_id = auto_id;
+    }
+
+
 
     public ModalData(String video_id) {
         this.video_id = video_id;

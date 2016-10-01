@@ -2,8 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.server18.relaxationapp.MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100"  />
-    <item android:id="@+id/delete" android:title="Delete"
+
+    <item android:id="@+id/delete" android:title="Select"
         android:orderInCategory="101" />
 </menu>
