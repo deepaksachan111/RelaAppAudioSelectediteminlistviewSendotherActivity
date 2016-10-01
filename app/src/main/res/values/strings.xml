@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RelaxationApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_audio_player">AudioPlayerActivity</string>
+
+    <string name="go_back">&amp;lt</string>
+    <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_zoom">ZoomActivity</string>
+</resources>
