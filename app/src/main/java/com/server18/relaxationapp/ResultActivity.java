@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -15,6 +17,8 @@ public class ResultActivity extends AppCompatActivity {
     ArrayList<String> ss = new ArrayList<>();
     DatabaseHandler databaseHandler;
     ArrayAdapter<String> adapter;
+
+    String corse;
     ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +32,7 @@ public class ResultActivity extends AppCompatActivity {
         for(ModalData addStudent : studata){
 
           String  id = addStudent.getAuto_id();
-          String  corse = addStudent.getVideo_id();
+            corse = addStudent.getVideo_id();
           ss.add(corse);
         }
       //  Bundle b = getIntent().getExtras();
@@ -46,6 +50,20 @@ public class ResultActivity extends AppCompatActivity {
          adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, ss);
         lv.setAdapter(adapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String s = (String) parent.getItemAtPosition(position);
+
+                databaseHandler.deleteSingleRow(s);
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+
+
+
 
     }
 
@@ -65,6 +83,7 @@ public class ResultActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.delete) {
+
           databaseHandler.deleteAllContacts();
             ss.clear();
             adapter.notifyDataSetChanged();

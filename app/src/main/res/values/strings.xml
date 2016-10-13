@@ -9,4 +9,6 @@
     <string name="go_back">&amp;lt</string>
     <string name="title_activity_result">ResultActivity</string>
     <string name="title_activity_zoom">ZoomActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_image_slider">ImageSliderActivity</string>
 </resources>

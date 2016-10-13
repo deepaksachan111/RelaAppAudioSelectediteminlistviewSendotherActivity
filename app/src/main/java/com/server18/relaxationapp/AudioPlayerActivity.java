@@ -48,7 +48,7 @@ public class AudioPlayerActivity extends Activity {
                 R.drawable.nature3,
                 R.drawable.images4,
                 R.drawable.image5,
-                R.drawable.images6,
+                R.drawable.image6,
                 R.drawable.image7,
                 };
 
